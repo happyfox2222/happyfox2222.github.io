@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Search</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        /* Gmail Button */
+        .gmail-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .gmail-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Search Bar Container */
+        .search-container {
+            margin-bottom: 50px;
+            width: 100%;
+            max-width: 400px;
+            padding: 0 20px;
+        }
+
+        /* Black Search Input */
+        #search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        #search-bar::placeholder {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://mail.google.com" class="gmail-btn">Gmail</a>
+
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search Google..." onkeydown="if(event.key === 'Enter') performSearch()">
+    </div>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('search-bar').value;
+            if (query.trim() !== "") {
+                window.location.href = `https://www.google.com{encodeURIComponent(query)}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
